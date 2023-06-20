@@ -9,19 +9,20 @@ import {
 } from "react-router-dom";
 
 export class App extends Component {
+  pageSize=8; 
   render() {
     return (
       <div>
         <Navbar />
         <Routes>
-         <Route path="/about" element={<News key="about " pageSize={5} country="in" category="about" />} />
-          <Route path="/business" element={<News key=" business" pageSize={5} country="in" category="business" />} />
-          <Route path="/entertainment" element={<News key="entertainment" pageSize={5} country="in" category="entertainment" />} />
-          <Route path="/general" element={<News key=" general" pageSize={5} country="in" category="general" />} />
-          <Route path="/health " element={<News key="health " pageSize={5} country="in" category="health" />} />
-          <Route path="/science" element={<News key=" sciene" pageSize={5} country="in" category="science" />} />
-          <Route path="/sports" element={<News key="sports " pageSize={5} country="in" category="sports" />} />
-          <Route path="/technology" element={<News key="technology " pageSize={5} country="in" category="technology" />} />
+         <Route exact path="/" element={<News key="about " pageSize={8} country="in" category="sports" />} />
+          <Route exact path="/business" element={<News key=" business" pageSize={8} country="in" category="business" />} />
+          <Route exact path="/entertainment" element={<News key="entertainment" pageSize={8} country="in" category="entertainment" />} />
+          <Route exact path="/general" element={<News key=" general" pageSize={8} country="in" category="general" />} />
+          <Route exact path="/health " element={<News key="health " pageSize={8} country="in" category="health" />} />
+          <Route exact path="/science" element={<News key=" sciene" pageSize={8} country="in" category="science" />} />
+          <Route exact path="/sports" element={<News key="sports " pageSize={8} country="in" category="sports" />} />
+          <Route exact path="/technology" element={<News key="technology " pageSize={8} country="in" category="technology" />} />
         </Routes>
       </div>
     )
