@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-
 import NewsItems from './NewsItems';
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
@@ -17,7 +16,7 @@ const News = (props) => {
 
     const updateNews = async () => {
         props.setProgress(10);
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=92c75aec2c494a4abdb7c6e9a6371b14&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         setLoading(true)
         let data = await fetch(url);
         props.setProgress(30);
@@ -37,7 +36,7 @@ const News = (props) => {
 
 
     const fetchMoreData = async () => {
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=92c75aec2c494a4abdb7c6e9a6371b14&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         setPage(page + 1)
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -47,7 +46,7 @@ const News = (props) => {
 
     return (
         <>
-            <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '90px' }}>NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+            <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '90px' }}>MediaMingle - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
             {loading && <Spinner />}
             <InfiniteScroll
                 dataLength={articles.length}
